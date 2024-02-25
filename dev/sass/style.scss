@@ -1,0 +1,14 @@
+@import "_mixins/settings";
+@import "_mixins/mixins";
+
+/* default styles */
+@import "_default/default";
+/* all styles */
+@import "_default/header";
+
+//blocks
+@import "_blocks/block";
+//pages
+@import "_pages/page";
+
+@import "_default/footer";

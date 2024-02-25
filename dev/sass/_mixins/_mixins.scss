@@ -1,0 +1,18 @@
+@mixin _respond-to($dig) {
+  @media screen and (max-width: $dig + px) {
+    @content
+  }
+}
+
+@mixin _respond-min($dig) {
+  @media screen and (min-width: $dig + px) {
+    @content
+  }
+}
+
+
+@mixin _respond-from($max, $min) {
+  @media only screen and (max-width: $max + px) and (min-width: $min + px) {
+    @content
+  }
+}
