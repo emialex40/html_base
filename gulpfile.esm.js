@@ -4,7 +4,6 @@ import autoprefixer from 'gulp-autoprefixer';
 import cleanCSS from 'gulp-clean-css';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify-es';
-import notify from 'gulp-notify';
 import sourcemaps from 'gulp-sourcemaps';
 import esm from 'esm'; // Import esm module
 
@@ -32,8 +31,7 @@ export function styles() {
         .pipe(autoprefixer())
         .pipe(cleanCSS())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(paths.styles.dest))
-        .pipe(notify({ message: 'Styles task complete' }));
+        .pipe(gulp.dest(paths.styles.dest));
 }
 
 // A task to collect JavaScript files
@@ -43,8 +41,7 @@ export function scripts() {
         .pipe(concat('scripts.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(paths.scripts.dest))
-        .pipe(notify({ message: 'Scripts task complete' }));
+        .pipe(gulp.dest(paths.scripts.dest));
 }
 
 // Tracking changes in files
