@@ -24,7 +24,7 @@ const paths = {
     }
 };
 
-// A tasks for compil фешщт SASS to CSS
+// A tasks for compilation SASS to CSS
 export function styles() {
     return gulp.src(paths.styles.src)
         .pipe(sourcemaps.init())
