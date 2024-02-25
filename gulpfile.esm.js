@@ -6,12 +6,12 @@ import concat from 'gulp-concat';
 import uglify from 'gulp-uglify-es';
 import notify from 'gulp-notify';
 import sourcemaps from 'gulp-sourcemaps';
-import esm from 'esm'; // Імпортуємо модуль esm
+import esm from 'esm'; // Import esm module
 
-const esmRequire = esm(module); // Створюємо змінну для використання esm
+const esmRequire = esm(module); // Create variable for use esm
 sass = require('gulp-sass')(require('sass'));
 
-// Шляхи до вашого проекту
+// Project paths
 const paths = {
     styles: {
         src: 'dev/sass/**/*.scss',
@@ -24,7 +24,7 @@ const paths = {
     }
 };
 
-// Завдання для компіляції SASS до CSS
+// A tasks for compil фешщт SASS to CSS
 export function styles() {
     return gulp.src(paths.styles.src)
         .pipe(sourcemaps.init())
@@ -36,7 +36,7 @@ export function styles() {
         .pipe(notify({ message: 'Styles task complete' }));
 }
 
-// Завдання для збору JavaScript файлів
+// A task to collect JavaScript files
 export function scripts() {
     return gulp.src([paths.scripts.libs, paths.scripts.src])
         .pipe(sourcemaps.init())
@@ -47,13 +47,13 @@ export function scripts() {
         .pipe(notify({ message: 'Scripts task complete' }));
 }
 
-// Стеження за змінами в файлах
+// Tracking changes in files
 export function watch() {
     gulp.watch(paths.styles.src, styles);
     gulp.watch(paths.scripts.src, scripts);
 }
 
-// Встановлюємо завдання за замовчуванням
+// Set the default task
 export default gulp.series(
     gulp.parallel(styles, scripts),
     watch
